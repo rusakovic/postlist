@@ -24,10 +24,12 @@ export const useFetchData = () => {
         setPosts([])
       }
     } catch (error) {
-      const errorMessage = error.message
-      setError(errorMessage)
-      setIsLoading(false)
-      setPosts([])
+      if (error instanceof Error) {
+        const errorMessage = error.message
+        setError(errorMessage)
+        setIsLoading(false)
+        setPosts([])
+      }
     }
   }
 

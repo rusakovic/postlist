@@ -4,6 +4,7 @@ import React from 'react'
 import { Routes } from '@routes'
 import { PostDetailScreen, PostListScreen } from '@screens'
 import styled from '@constants/styled'
+import { StatusBar } from 'expo-status-bar'
 
 const Stack = createNativeStackNavigator()
 
@@ -19,15 +20,28 @@ const Navigator = () => {
   return (
     <NavigationContainer theme={AppTheme}>
       <Stack.Navigator>
-        <Stack.Screen name={Routes.PostList} component={PostListScreen} />
-        <Stack.Screen name={Routes.PostDetail} component={PostDetailScreen} />
+        <Stack.Screen
+          name={Routes.PostList}
+          component={PostListScreen}
+          options={{ headerTitle: 'Posts' }}
+        />
+        <Stack.Screen
+          name={Routes.PostDetail}
+          component={PostDetailScreen}
+          options={{ headerTitle: '' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
 }
 
 const App = () => {
-  return <Navigator />
+  return (
+    <>
+      <StatusBar style='dark' />
+      <Navigator />
+    </>
+  )
 }
 
 export default App

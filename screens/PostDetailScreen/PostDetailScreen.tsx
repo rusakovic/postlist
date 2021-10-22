@@ -16,9 +16,7 @@ const PostDetailScreen: FC = () => {
     <View style={PostDetailScreenStyles.shadowContainer}>
       {/* USER ID */}
       <ContainerCenter>
-        <DefaultText s fontFamilyLight>
-          {userId} wrote:
-        </DefaultText>
+        <DefaultText xs>{userId} wrote:</DefaultText>
       </ContainerCenter>
       <ContainerSpace mtXS />
 
