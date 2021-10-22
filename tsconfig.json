@@ -1,6 +1,18 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true, 
+    "moduleResolution": "node", 
+    "paths": {
+      "*": ["*"],
+      "@routes/*": ["routes/*"],
+      "@routes": ["routes"],
+      "@screens/*": ["./screens/*"],
+      "@screens": ["./screens"],
+      "@constants/*": ["./constants/*"],
+      "@constants": ["./constants"],
+    }
   }
 }

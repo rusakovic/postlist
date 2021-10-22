@@ -1,23 +1,32 @@
-import { StatusBar } from 'expo-status-bar'
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Routes } from '@routes'
+import { PostListScreen } from '@screens/PostListScreen'
+import styled from '@constants/styled'
 
-const App = () => {
+const Stack = createNativeStackNavigator()
+
+const Navigator = () => {
+  const AppTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: styled.colors.white.white,
+    },
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style='auto' />
-    </View>
+    <NavigationContainer theme={AppTheme}>
+      <Stack.Navigator>
+        <Stack.Screen name={Routes.PostList} component={PostListScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+const App = () => {
+  return <Navigator />
+}
 
 export default App
