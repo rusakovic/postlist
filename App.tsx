@@ -2,7 +2,7 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { Routes } from '@routes'
-import { PostListScreen } from '@screens/PostListScreen'
+import { PostDetailScreen, PostListScreen } from '@screens'
 import styled from '@constants/styled'
 
 const Stack = createNativeStackNavigator()
@@ -20,6 +20,7 @@ const Navigator = () => {
     <NavigationContainer theme={AppTheme}>
       <Stack.Navigator>
         <Stack.Screen name={Routes.PostList} component={PostListScreen} />
+        <Stack.Screen name={Routes.PostDetail} component={PostDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

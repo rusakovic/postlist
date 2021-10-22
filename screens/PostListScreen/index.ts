@@ -1,1 +1,1 @@
-export { default as PostListScreen } from './PostListScreen'
+export { default } from './PostListScreen'
