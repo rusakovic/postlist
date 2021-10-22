@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { DataPostAPIs } from '@constants/constants'
+import { PostType } from 'types/generalTypes'
 
 export const useFetchData = () => {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<PostType[]>([])
   const [error, setError] = useState<null | string>(null)
   const [isLoading, setIsLoading] = useState(false)
 

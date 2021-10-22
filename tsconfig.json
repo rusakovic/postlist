@@ -13,6 +13,8 @@
       "@screens": ["./screens"],
       "@constants/*": ["./constants/*"],
       "@constants": ["./constants"],
+      "@components/*": ["./components/*"],
+      "@components": ["./components"],
     }
   }
 }
