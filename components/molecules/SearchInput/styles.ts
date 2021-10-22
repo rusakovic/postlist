@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
 
-export const PostListScreenStyles = StyleSheet.create({
+export const SearchInputStyles = StyleSheet.create({
   mainContainer: { flex: 1 },
   searchWrapper: {
     marginHorizontal: wp(4),
