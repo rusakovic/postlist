@@ -4,9 +4,7 @@
 3. `npm run ios` or `npm run android` for runnig the app on the simulator
 
 # App Preview
-
-
-https://user-images.githubusercontent.com/17801144/138560189-b9e6a6b8-fc17-4ff1-b3fd-b43f692ca770.mov
+https://user-images.githubusercontent.com/17801144/138560412-97fcfd84-5dce-49fb-bc72-72c5c461e592.mp4
 
 
 # Task
