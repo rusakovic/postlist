@@ -6,11 +6,13 @@ import { PostPreview, SearchInput } from 'components/molecules'
 import React, { useMemo, useState } from 'react'
 import { ActivityIndicator, FlatList, Pressable } from 'react-native'
 import { Routes } from 'routes'
-import { PostType } from 'types/generalTypes'
+import { PostType, RootStackParamList } from 'types/generalTypes'
 import { useFetchData } from 'utils/fetchData/fetchDataHook'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 const PostListScreen = () => {
-  const { navigate } = useNavigation()
+  const { navigate } =
+    useNavigation<StackNavigationProp<RootStackParamList, Routes.PostList>>()
 
   const { posts, error, isLoading } = useFetchData()
   const [searchText, setSearchText] = useState('')
@@ -32,8 +34,7 @@ const PostListScreen = () => {
   const onPostPress = (
     userId: PostType['userId'],
     title: PostType['title'],
-    body: PostType['body'],
-    id: PostType['id']
+    body: PostType['body']
   ) => {
     navigate(Routes.PostDetail, {
       userId,
@@ -65,7 +66,7 @@ const PostListScreen = () => {
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item: { userId, title, body, id } }) => {
             return (
-              <Pressable onPress={() => onPostPress(userId, title, body, id)}>
+              <Pressable onPress={() => onPostPress(userId, title, body)}>
                 <PostPreview userId={userId} title={title} />
               </Pressable>
             )
