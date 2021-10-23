@@ -15,6 +15,7 @@ const PostListScreen = () => {
     useNavigation<StackNavigationProp<RootStackParamList, Routes.PostList>>()
 
   const { posts, error, isLoading } = useFetchData()
+  const isError = Boolean(error)
   const [searchText, setSearchText] = useState('')
   const isSearchTextFilled = !!searchText.length
   const onClearSearchInputHandler = () => {
@@ -50,13 +51,14 @@ const PostListScreen = () => {
         searchText={searchText}
         isSearchTextFilled={isSearchTextFilled}
         onClearSearchInputHandler={onClearSearchInputHandler}
+        isDisabled={isError}
       />
       {isLoading ? (
         <ContainerCenter isMarginTop>
           <ContainerSpace mtXL />
           <ActivityIndicator size='large' />
         </ContainerCenter>
-      ) : error ? (
+      ) : isError ? (
         <ContainerCenter isContainer isVerticalCenter>
           <DefaultText numberOfLines={4}>Error occurs: {error}</DefaultText>
         </ContainerCenter>

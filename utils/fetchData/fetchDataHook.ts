@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { DataPostAPIs } from '@constants/constants'
 import { PostType } from 'types/generalTypes'
+import { isEmpty } from 'lodash'
 
 export const useFetchData = () => {
   const [posts, setPosts] = useState<PostType[]>([])
@@ -15,7 +16,7 @@ export const useFetchData = () => {
       const fetchReq = await fetch(DataPostAPIs.allPostsAPI)
       const fetchRes = await fetchReq.json()
 
-      if (fetchRes) {
+      if (!isEmpty(fetchRes)) {
         setPosts(fetchRes)
         setIsLoading(false)
       } else {

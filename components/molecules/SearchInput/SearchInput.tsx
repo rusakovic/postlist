@@ -9,6 +9,7 @@ interface SearchInputProps {
   setSearchText: React.Dispatch<React.SetStateAction<string>>
   isSearchTextFilled: boolean
   onClearSearchInputHandler: () => void
+  isDisabled: boolean
 }
 
 const SearchInput: React.FunctionComponent<SearchInputProps> = ({
@@ -16,6 +17,7 @@ const SearchInput: React.FunctionComponent<SearchInputProps> = ({
   setSearchText,
   isSearchTextFilled,
   onClearSearchInputHandler,
+  isDisabled,
 }) => {
   return (
     <View style={SearchInputStyles.searchWrapper}>
@@ -26,6 +28,8 @@ const SearchInput: React.FunctionComponent<SearchInputProps> = ({
           style={SearchInputStyles.searchField}
           onChangeText={setSearchText}
           keyboardType='numeric'
+          editable={!isDisabled}
+          selectTextOnFocus={!isDisabled}
         />
         {isSearchTextFilled ? (
           <Pressable
